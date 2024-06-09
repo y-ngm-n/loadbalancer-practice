@@ -47,7 +47,7 @@ jobs:
         run: scp -o StrictHostKeyChecking=no *.jar ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }}:~/cicd
       - name: Execute remote commands
         run: |
-          ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }} "sudo fuser -k 8080/tcp"
+          ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }} "sudo fuser -k 8080/tcp || true"
           ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }} "sudo nohup /usr/bin/java -jar ~/cicd/*.jar &"
 
 
