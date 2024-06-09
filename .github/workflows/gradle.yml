@@ -48,7 +48,7 @@ jobs:
       - name: Execute remote commands
         run: |
           ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }} "sudo fuser -k 8080/tcp || true"
-          ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }} "sudo nohup /usr/bin/java -jar ~/cicd/*.jar &"
+          ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }} "sudo nohup /usr/bin/java -jar ~/cicd/*.jar > ~/cicd/nohup.log 2>&1 &"
 
 
   dependency-submission:
