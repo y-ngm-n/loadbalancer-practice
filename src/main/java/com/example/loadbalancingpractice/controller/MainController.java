@@ -8,7 +8,7 @@ public class MainController {
 
     @GetMapping()
     public String hello() {
-        return "Version 1";
+        return "Version 2";
     }
 
 }
